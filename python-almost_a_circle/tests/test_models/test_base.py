@@ -108,6 +108,24 @@ class TestBase_save_to_file(unittest.TestCase):
         with open("Rectangle.json", "r") as f:
             self.assertEqual(f.read(), "[]")
 
+    def test_empty_list_saves_empty_list(self):
+        """Passing an empty list saves an empty JSON list."""
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_square_none_saves_empty_list(self):
+        """Square.save_to_file(None) saves an empty JSON list."""
+        Square.save_to_file(None)
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
+    def test_square_empty_list_saves_empty_list(self):
+        """Square.save_to_file([]) saves an empty JSON list."""
+        Square.save_to_file([])
+        with open("Square.json", "r") as f:
+            self.assertEqual(f.read(), "[]")
+
     def test_content_matches_dictionaries(self):
         """The saved JSON matches the instances' dictionaries."""
         r1 = Rectangle(10, 7, 2, 8)

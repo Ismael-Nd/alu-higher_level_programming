@@ -56,6 +56,31 @@ class TestSquare_instantiation(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-5)
 
+    def test_size_zero(self):
+        """A size of 0 raises ValueError with width's message."""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(0)
+
+    def test_x_not_int(self):
+        """A non-integer x raises TypeError, inherited from Rectangle."""
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "2")
+
+    def test_y_not_int(self):
+        """A non-integer y raises TypeError, inherited from Rectangle."""
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 2, "3")
+
+    def test_x_negative(self):
+        """A negative x raises ValueError, inherited from Rectangle."""
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(1, -2)
+
+    def test_y_negative(self):
+        """A negative y raises ValueError, inherited from Rectangle."""
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(1, 2, -3)
+
 
 class TestSquare_size(unittest.TestCase):
     """Tests for the Square size property."""
