@@ -49,3 +49,27 @@ Invalid types raise a TypeError:
     >>> add_integer([1, 2], 4)
     Traceback (most recent call last):
     TypeError: a must be an integer
+
+A float too large to convert to an integer raises an OverflowError:
+
+    >>> add_integer(float("inf"), 2)
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
+
+A float NaN cannot be converted to an integer:
+
+    >>> add_integer(float("nan"), 2)
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
+
+Calling with a missing required argument raises a TypeError:
+
+    >>> add_integer()
+    Traceback (most recent call last):
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Calling with too many arguments raises a TypeError:
+
+    >>> add_integer(1, 2, 3)
+    Traceback (most recent call last):
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
