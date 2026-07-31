@@ -1,0 +1,52 @@
+The ``1-my_list`` module
+========================
+
+Using ``MyList``
+-----------------
+
+Import the class:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Create an empty MyList and check it behaves like a list:
+
+    >>> my_list = MyList()
+    >>> my_list
+    []
+    >>> isinstance(my_list, list)
+    True
+
+Append some unsorted integers:
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list
+    [1, 4, 2, 3, 5]
+
+``print_sorted`` prints the elements in ascending order:
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+The original list order is left untouched:
+
+    >>> my_list
+    [1, 4, 2, 3, 5]
+
+Calling ``print_sorted`` on an empty list prints an empty list:
+
+    >>> MyList().print_sorted()
+    []
+
+Negative and duplicate numbers are sorted correctly too:
+
+    >>> ml = MyList()
+    >>> ml.append(0)
+    >>> ml.append(-5)
+    >>> ml.append(3)
+    >>> ml.append(-5)
+    >>> ml.print_sorted()
+    [-5, -5, 0, 3]
