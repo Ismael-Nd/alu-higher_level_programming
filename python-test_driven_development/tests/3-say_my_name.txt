@@ -1,0 +1,35 @@
+The ``3-say_my_name`` module
+==============================
+
+Import the function:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Print a full name:
+
+    >>> say_my_name("John", "Smith")
+    My name is John Smith
+
+    >>> say_my_name("Walter", "White")
+    My name is Walter White
+
+last_name defaults to an empty string:
+
+    >>> import io, contextlib
+    >>> buf = io.StringIO()
+    >>> with contextlib.redirect_stdout(buf):
+    ...     say_my_name("Bob")
+    >>> buf.getvalue() == "My name is Bob \n"
+    True
+
+first_name must be a string:
+
+    >>> say_my_name(12, "White")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+last_name must be a string:
+
+    >>> say_my_name("Bob", 12)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string

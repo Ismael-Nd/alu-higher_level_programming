@@ -1,0 +1,31 @@
+The ``5-text_indentation`` module
+====================================
+
+Import the function:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Print text with new lines after '.', '?' and ':':
+
+    >>> text_indentation("Hello. How are you? I am fine: thanks")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I am fine:
+    <BLANKLINE>
+    thanks
+
+text must be a string:
+
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+An empty string prints nothing:
+
+    >>> text_indentation("")
