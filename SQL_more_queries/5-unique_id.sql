@@ -1,5 +1,5 @@
--- Creates the table unique_id, where id defaults to 1 and must be unique, if it does not already exist
+-- Creates the table unique_id with a unique default id value of 1
 CREATE TABLE IF NOT EXISTS unique_id (
-    id INT UNIQUE DEFAULT 1,
+    id INT DEFAULT 1 UNIQUE,
     name VARCHAR(256)
 );
